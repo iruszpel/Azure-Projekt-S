@@ -51,7 +51,7 @@ Osoba korzystająca z aplikacji w wyznaczone pole podaje treść artykułu, do k
 
 1. Aplikacja frontend w React, która łączy się z API wystawionym na Azure Functions
 2. Funkcja działająca na zasadzie HTTP trigger, pełni rolę proxy do RESTowego API z Cognitive Services i sprowadza proces 2 zapytań (zgłoszenie zadania klasyfikacji i odpytywania o wynik) w jedno zapytanie. Wykorzystujemy Consumption plan, dzięki czemu jej zasoby są alokowane tylko po nadejściu zapytania pod dany endpoint
-3. Lorem nosum
+3. Serwis azura, który pozwolił nam w prosty sposób wytrenować model kategoryzujący. Po wdrożeniu model jest dostępny przez restowe API do którego sięga funkcja(2).
 4. Wymagane jest posiadanie App Service Plan'u grupującego Functions i Static Web Apps
 5. Wykorzystujemy do przechowywania danych potrzebnych do trenowania modelu i pod deploy Functions i Static Web Apps
 
