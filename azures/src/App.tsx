@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import "./App.css";
 import {
   Box,
   Card,
@@ -15,9 +14,15 @@ import TextArea from "./components/text-area";
 import TagCard from "./components/tag-card";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 
+
+type Tag = {
+    category: string;
+    confidenceScore: number;
+}
+
 function App() {
   const [height, setHeight] = useState<number>(0);
-  const [tags, setTags] = useState<string[]>([]);
+  const [tags, setTags] = useState<Tag[]>([]);
 
   const boxRef = useRef(null);
   const [inputValue, setInputValue] = useState<string>("");
@@ -66,9 +71,10 @@ function App() {
     }
     const data = await response.json();
     console.log(data);
+    // console.log
     data.class.forEach((d: any) => {
-      console.log(d.category.toString());
-      setTags((prev) => [...prev, d.category]);
+      console.log(d);
+      setTags((prev) => [...prev, d]);
     });
     setIsLoading(false);
     setIsFinished(true);
@@ -179,13 +185,14 @@ function App() {
             />
           )}
           {tags.length === 1 && errorMessage.length === 0 && (
-            <TagCard tag={tags[0]} elementHeight={"100vh"} fontSize={"40px"} />
+            <TagCard tag={tags[0].category} confidenceScore={tags[0].confidenceScore} elementHeight={"100vh"} fontSize={"40px"} />
           )}
           {tags.length > 1 &&
             errorMessage.length === 0 &&
             tags.map((t) => (
               <TagCard
-                tag={t}
+                tag={t.category}
+                confidenceScore={t.confidenceScore}
                 elementHeight={elementHeight}
                 fontSize={fontSize}
               />

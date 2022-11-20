@@ -1,13 +1,17 @@
 import { Card } from "@mui/material";
 interface TagCardProps {
   tag: string;
+  confidenceScore?: number;
   elementHeight: string;
   borderColor?: string;
   fontSize: string;
 }
 
 const TagCard: React.FC<TagCardProps> = (props) => {
-  const { tag, elementHeight, fontSize, borderColor } = props;
+  const { tag, elementHeight, fontSize, borderColor, confidenceScore } = props;
+
+  const value = Math.ceil(confidenceScore*100) + "%";
+
   return (
     <Card
       sx={{
@@ -19,7 +23,7 @@ const TagCard: React.FC<TagCardProps> = (props) => {
         borderRadius: "15px",
         display: "flex",
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: "space-evenly",
         color: "white",
         fontWeight: 700,
         marginX: "20px",
@@ -29,7 +33,8 @@ const TagCard: React.FC<TagCardProps> = (props) => {
         },
       }}
     >
-      {tag}
+    <div>{tag}</div>
+    {confidenceScore && <div>({value})</div>}
     </Card>
   );
 };
