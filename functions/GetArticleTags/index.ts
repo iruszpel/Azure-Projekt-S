@@ -117,7 +117,10 @@ const httpTrigger: AzureFunction = async function (
 
   predictionData = await prediction.json();
 
-  while (predictionData.status !== "succeeded") {
+  let tryCount = 0;
+
+  while (predictionData.status !== "succeeded" && tryCount < 8) {
+    tryCount++;
     await new Promise((resolve) => setTimeout(resolve, 500));
 
     const prediction = await retrievePrediction(operationLocation);
