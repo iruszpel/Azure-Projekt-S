@@ -20,6 +20,7 @@
 on:
   push:
     branches: [ "main" ]
+  pull_request:
   workflow_dispatch:
 
 env:
@@ -33,6 +34,9 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./azures
     steps:
     - uses: actions/checkout@v3
 
@@ -41,6 +45,7 @@ jobs:
       with:
         node-version: ${{ env.NODE_VERSION }}
         cache: 'npm'
+        cache-dependency-path: ./azures/package-lock.json
 
     - name: npm install, build, and test
       run: |
@@ -58,6 +63,9 @@ jobs:
     permissions:
       contents: none
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./azures
     needs: build
     environment:
       name: 'Development'
