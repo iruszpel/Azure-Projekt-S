@@ -47,7 +47,9 @@ function App() {
       });
   }, [boxRef]);
   const elementHeight = (height - 50) / tags.length + "px";
-  const fontSize = (height - 50) / tags.length / 3 + "px";
+  const fontSize = (height - 50) / tags.length / 10 + "px";
+
+  console.log(fontSize)
 
   async function fetchTags(article: object) {
     setIsLoading(true);
