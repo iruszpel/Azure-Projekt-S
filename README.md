@@ -59,4 +59,4 @@ Osoba korzystająca z aplikacji w wyznaczone pole podaje treść artykułu, do k
 [Demonstracja na yt](https://www.youtube.com/watch?v=zSRnAFyl8X0)
 
 ## Link do demo aplikacji
-[Aplikacja](https://github.com/iruszpel/Azure-Projekt-S/tree/main/azures)
+[Aplikacja](https://white-cliff-098316803.2.azurestaticapps.net/)
