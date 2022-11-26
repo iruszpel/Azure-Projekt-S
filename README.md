@@ -1,5 +1,11 @@
 # Azure-Projekt-S
 
+# Skład zespołu
+[Nikodem Wójcik](https://github.com/01NikodemW)
+
+[Łukasz Sobczak](https://github.com/sobczal2)
+
+[Ignacy Ruszpel](https://github.com/iruszpel)
 
 # Opis działania projektu
 Osoba korzystająca z aplikacji w wyznaczone pole podaje treść artykułu, do którego chce znaleźć tagi. Jeżeli tagi zostaną znalezione to zostaną one wyświetlone w polu obok wraz z ich stopniem pewności. Jeżeli nie, zostanie wyświetlona informacja o tym, że żadne pasujące tagi nie zostały znalezione.
